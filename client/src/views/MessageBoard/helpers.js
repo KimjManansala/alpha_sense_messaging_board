@@ -24,3 +24,6 @@ export const handleGetChannelsMessage = (channelId, callback) => {
             alert("sorry something went wrong")
         })
 }
+
+export const handleSubmitNewMessage = (channelId, params, callback) => {
+}

@@ -33,6 +33,7 @@ function Channels({channels, selectedChannel, handleUpdateSelectedChannel}) {
                                 onClick={handleSelectedChannelClick}
                                 channel={channel}
                                 index={index}
+                                key={channel}
                             />
                         ))}
                     </tbody>

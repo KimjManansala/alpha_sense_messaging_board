@@ -14,7 +14,6 @@ Messages.propTypes = {
 function Messages({
     messages
 }) {
-    console.log('messages', messages)
     return (
         <Table>
             <thead>
@@ -26,7 +25,7 @@ function Messages({
             </thead>
             <tbody>
                 {messages.length > 0 && messages.map(message => (
-                    <Message message={message} />
+                    <Message message={message} key={message.id} />
                 ))}
             </tbody>
         </Table>
