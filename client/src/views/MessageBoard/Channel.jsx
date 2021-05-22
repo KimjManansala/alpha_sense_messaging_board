@@ -17,8 +17,11 @@ function Channel({
     return (
         <tr
             onClick={() => {onClick(index)}}
+            style={{
+                cursor: "pointer",
+            }}
         >
-            {channel}
+            <td>{channel.name}</td>
         </tr>
     );
 }

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {Label, Table} from "reactstrap";
+import {Card, Label, Table} from "reactstrap";
 import Channel from "./Channel";
 
 Channels.propTypes = {
@@ -13,22 +13,24 @@ function Channels({channels, selectedChannel, handleUpdateSelectedChannel}) {
         handleUpdateSelectedChannel(newSelectedChannel);
     }
     return (
-        <div>
-            <Table>
-                <thead>
-                    <tr>Channel Name</tr>
-                </thead>
-                <tbody>
-                {channels.map((channel, index) => (
-                        <Channel
-                            onClick={handleSelectedChannelClick}
-                            channel={channel}
-                            index={index}
-                        />
-                    ))}
-                </tbody>
-            </Table>
-        </div>
+            <Card className="w-50">
+                <Table>
+                    <thead>
+                        <tr>
+                            <td>Channel Name</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {channels.map((channel, index) => (
+                            <Channel
+                                onClick={handleSelectedChannelClick}
+                                channel={channel}
+                                index={index}
+                            />
+                        ))}
+                    </tbody>
+                </Table>
+            </Card>
     );
 }
 
