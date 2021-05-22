@@ -4,7 +4,6 @@ import { Link, useParams } from "react-router-dom";
 
 function NavbarMessagingBoard() {
     const { pageSection } = useParams();
-    console.log(pageSection)
     return (
         <Nav tabs>
             <NavItem>

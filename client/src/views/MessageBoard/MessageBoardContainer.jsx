@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import Channels from "./Channels";
 import Messages from "./Messages";
 import Edit from "./Edit";
-import {handleGetChannels} from "./helpers";
+import {handleGetChannels, handleGetChannelsMessage} from "./helpers";
 
 function MessageBoardContainer() {
     const { pageSection } = useParams();
@@ -16,8 +16,8 @@ function MessageBoardContainer() {
 
     // component functions
     const handleUpdateSelectedChannel = (newSelectedChannel) => {
-        console.log(newSelectedChannel)
         setSelectedChannel(newSelectedChannel);
+        handleGetChannelsMessage(newSelectedChannel.id, setMessages);
         history.push('/message_section')
 
     }
@@ -34,6 +34,7 @@ function MessageBoardContainer() {
     return (
         <div>
             Message board container
+            {' '}
             {pageSection}
             {(!pageSection || pageSection === "channel_section" ) && (
                 <Channels
