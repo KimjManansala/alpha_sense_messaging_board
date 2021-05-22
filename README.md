@@ -5,7 +5,9 @@
 ### Goals
 
 
-### Accomplishments
+### Application Diagram and Architecture
+![AlphaSense Message Board prototype Diagram](https://user-images.githubusercontent.com/40606399/119208904-1f5a9400-ba72-11eb-8aae-70b4bd271362.png)
+
 #### Client visuals
  - Render a full page application with three panels
  - Navigation panel shows a list of channels
