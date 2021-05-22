@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import Channels from "./Channels";
 import Messages from "./Messages";
 import Edit from "./Edit";
@@ -7,17 +7,19 @@ import {handleGetChannels} from "./helpers";
 
 function MessageBoardContainer() {
     const { pageSection } = useParams();
+    const history = useHistory();
 
     // state
-    const [channels, setChannels] = useState([{
-        name: 'Test channel prior APi'
-    }]);
+    const [channels, setChannels] = useState([]);
     const [messages, setMessages] = useState([]);
     const [selectedChannel, setSelectedChannel] = useState({});
 
     // component functions
     const handleUpdateSelectedChannel = (newSelectedChannel) => {
+        console.log(newSelectedChannel)
         setSelectedChannel(newSelectedChannel);
+        history.push('/message_section')
+
     }
 
     const handleSubmitMessage = (message) => {
