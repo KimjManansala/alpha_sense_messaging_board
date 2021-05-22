@@ -4,7 +4,13 @@ import {Card, Label, Table} from "reactstrap";
 import Channel from "./Channel";
 
 Channels.propTypes = {
-
+    channels: PropTypes.arrayOf({
+        name: PropTypes.string,
+    }).isRequired,
+    selectedChannel: PropTypes.shape({
+        name: PropTypes.string,
+    }).isRequired,
+    handleUpdateSelectedChannel: PropTypes.func.isRequired,
 };
 
 function Channels({channels, selectedChannel, handleUpdateSelectedChannel}) {
