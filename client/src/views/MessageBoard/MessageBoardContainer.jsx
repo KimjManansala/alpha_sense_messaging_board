@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { useParams } from 'react-router-dom';
 import Channels from "./Channels";
 import Messages from "./Messages";
+import Edit from "./Edit";
 
 function MessageBoardContainer() {
     const { pageSection } = useParams();
@@ -18,6 +19,10 @@ function MessageBoardContainer() {
         setSelectedChannel(newSelectedChannel);
     }
 
+    const handleSubmitMessage = (message) => {
+        console.log('submit placeholder')
+    }
+
     return (
         <div>
             Message board container
@@ -25,12 +30,18 @@ function MessageBoardContainer() {
             {(!pageSection || pageSection === "channel_section" ) && (
                 <Channels
                     channels={channels}
-                    selectedChannel={{}}
+                    selectedChannel={selectedChannel}
                     handleUpdateSelectedChannel={handleUpdateSelectedChannel}
                 />
             )}
             {pageSection === "message_section" && (
                 <Messages messages={messages} />
+            )}
+            {pageSection === "edit_section" && (
+                <Edit
+                    selectedChannel={selectedChannel}
+                    handleSubmitMessage={handleSubmitMessage}
+                />
             )}
         </div>
     );
