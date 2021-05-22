@@ -14,6 +14,7 @@ Channels.propTypes = {
 };
 
 function Channels({channels, selectedChannel, handleUpdateSelectedChannel}) {
+    console.log(channels)
     const handleSelectedChannelClick = (selectedChannelIndex) => {
         const newSelectedChannel = selectedChannel[selectedChannelIndex];
         handleUpdateSelectedChannel(newSelectedChannel);

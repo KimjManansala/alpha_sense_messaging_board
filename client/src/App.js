@@ -16,6 +16,7 @@ function App() {
         <NavbarMessagingBoard />
           <Switch>
             <Route path='/:pageSection' component={MessageBoardContainer}/>
+            <Route path='' component={MessageBoardContainer}/>
           </Switch>
     </Router>
   );
