@@ -1,22 +1,22 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import {Button, Card, CardBody, FormGroup, Input} from "reactstrap";
+import {useDispatch} from "react-redux";
+import {handleSubmitNewMessage} from "./action";
+import {useHistory} from "react-router-dom";
 
-Edit.propTypes = {
-    handleSubmitMessage: PropTypes.func,
-    selectedChannel: PropTypes.shape({
-        id: PropTypes.number,
-    })
-};
-
-function Edit({handleSubmitMessage, selectedChannel}) {
+function Edit() {
+    const dispatch = useDispatch();
+    const history = useHistory();
     const [newMessage, setNewMessage] = useState('');
     const [isButtonDisabled, setIsButtonDisabled] = useState(true)
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        handleSubmitMessage(newMessage);
+
+        dispatch(handleSubmitNewMessage(newMessage));
         setNewMessage('');
+        history.push('/message_section')
     };
 
     const handleChange = (event) => {

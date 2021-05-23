@@ -9,7 +9,7 @@ function NavbarMessagingBoard() {
             <NavItem>
                 <NavLink active={pageSection === "channel_section" || !pageSection}>
                     <Link to="/channel_section">
-                        Channels
+                        Navigation
                     </Link>
                 </NavLink>
             </NavItem>

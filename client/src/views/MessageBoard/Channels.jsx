@@ -1,24 +1,11 @@
-import React, {useState} from 'react';
-import PropTypes from 'prop-types';
-import {Card, Label, Table} from "reactstrap";
+import React from 'react';
+import {Card, Table} from "reactstrap";
 import Channel from "./Channel";
+import {useSelector} from "react-redux";
 
-Channels.propTypes = {
-    channels: PropTypes.arrayOf({
-        name: PropTypes.string,
-    }).isRequired,
-    selectedChannel: PropTypes.shape({
-        name: PropTypes.string,
-    }).isRequired,
-    handleUpdateSelectedChannel: PropTypes.func.isRequired,
-};
+function Channels() {
+    const { channels } = useSelector((state => state.messageBoard))
 
-function Channels({channels, selectedChannel, handleUpdateSelectedChannel}) {
-    console.log(channels)
-    const handleSelectedChannelClick = (selectedChannelIndex) => {
-        const newSelectedChannel = channels[selectedChannelIndex];
-        handleUpdateSelectedChannel(newSelectedChannel);
-    }
     return (
             <Card className="w-50">
                 <Table>
@@ -28,12 +15,10 @@ function Channels({channels, selectedChannel, handleUpdateSelectedChannel}) {
                         </tr>
                     </thead>
                     <tbody>
-                    {channels.map((channel, index) => (
+                    {channels.map((channel) => (
                             <Channel
-                                onClick={handleSelectedChannelClick}
                                 channel={channel}
-                                index={index}
-                                key={channel}
+                                key={channel.id}
                             />
                         ))}
                     </tbody>

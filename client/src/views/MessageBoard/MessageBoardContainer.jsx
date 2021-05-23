@@ -3,56 +3,25 @@ import { useParams, useHistory } from 'react-router-dom';
 import Channels from "./Channels";
 import Messages from "./Messages";
 import Edit from "./Edit";
-import {handleGetChannels, handleGetChannelsMessage, handleSubmitNewMessage} from "./helpers";
+import {handleGetChannels, handleGetChannelsMessage, handleSubmitNewMessage} from "./action";
+import {useDispatch, useSelector} from "react-redux";
+import {CardBody, CardHeader} from "reactstrap";
 
 function MessageBoardContainer() {
     const { pageSection } = useParams();
-    const history = useHistory();
-
-    // state
-    const [channels, setChannels] = useState([]);
-    const [messages, setMessages] = useState([]);
-    const [selectedChannel, setSelectedChannel] = useState({});
-
-    // component functions
-    const handleUpdateSelectedChannel = (newSelectedChannel) => {
-        setSelectedChannel(newSelectedChannel);
-        handleGetChannelsMessage(newSelectedChannel.id, setMessages);
-        history.push('/message_section')
-
-    }
-
-    const handleSubmitMessage = (message) => {
-        handleSubmitNewMessage(selectedChannel, message, handleUpdateSelectedChannel)
-    }
-
+    const dispatch = useDispatch();
     // lifecycle
     useEffect(() => {
-        handleGetChannels(setChannels)
+        dispatch(handleGetChannels());
     }, [])
 
     return (
-        <div>
-            Message board container
-            {' '}
-            {pageSection}
-            {(!pageSection || pageSection === "channel_section" ) && (
-                <Channels
-                    channels={channels}
-                    selectedChannel={selectedChannel}
-                    handleUpdateSelectedChannel={handleUpdateSelectedChannel}
-                />
-            )}
-            {pageSection === "message_section" && (
-                <Messages messages={messages} />
-            )}
-            {pageSection === "edit_section" && (
-                <Edit
-                    selectedChannel={selectedChannel}
-                    handleSubmitMessage={handleSubmitMessage}
-                />
-            )}
-        </div>
+        <CardBody>
+            <CardHeader>
+                <h2>Welcome to this mock storyboard!</h2>
+                <h3>Please go to the navigation tab to browse the channels!</h3>
+            </CardHeader>
+        </CardBody>
     );
 }
 

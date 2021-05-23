@@ -1,5 +1,6 @@
 export const actionTypes = {
     UPDATE_CHANNEL_LIST: "UPDATE_CHANNEL_LIST",
+    UPDATE_SELECTED_CHANNEL: "UPDATE_SELECTED_CHANNEL",
     UPDATE_MESSAGE_LIST: "UPDATE_MESSAGE_LIST",
     UPDATE_CURRENT_PAGE: "UPDATE_CURRENT_PAGE",
 };
@@ -7,12 +8,13 @@ export const actionTypes = {
 
 const messageBoardReducerDefaultState = {
     channels: [],
+    selectedChannel: {},
     messages: [],
 };
 
 export const messageBoardReducer = (state = messageBoardReducerDefaultState, action) => {
     const { type } = action;
-    swtich (type) {
+    switch (type) {
         case actionTypes.UPDATE_CHANNEL_LIST:
             return {
                 ...state,
@@ -23,6 +25,11 @@ export const messageBoardReducer = (state = messageBoardReducerDefaultState, act
             ...state,
             messages: action.payload,
         };
+        case actionTypes.UPDATE_SELECTED_CHANNEL:
+            return {
+                ...state,
+                selectedChannel: action.payload,
+            }
         default: {
             return {
                 ...state
@@ -37,7 +44,7 @@ const commonDefaultState = {
 
 export const commonReducer = (state = commonDefaultState, action) => {
     const { type } = action;
-    swtich(type) {
+    switch (type) {
     case actionTypes.UPDATE_CURRENT_PAGE:
         return {
             ...state,
