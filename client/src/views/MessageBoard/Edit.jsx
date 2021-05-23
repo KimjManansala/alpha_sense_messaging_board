@@ -25,6 +25,12 @@ function Edit({handleSubmitMessage, selectedChannel}) {
     }
 
     useEffect(() => {
+        return () => {
+            setNewMessage('');
+        }
+    }, [])
+
+    useEffect(() => {
         setIsButtonDisabled(newMessage.length < 1)
     }, [newMessage]);
 
