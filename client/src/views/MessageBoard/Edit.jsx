@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import {Button, Card, CardBody, FormGroup, Input} from "reactstrap";
 import {useDispatch} from "react-redux";
-import {handleSubmitNewMessage} from "./action";
+import {handleSubmitNewMessage, handleUpdateCurrentPage} from "./action";
 import {useHistory} from "react-router-dom";
 
 function Edit() {
@@ -16,6 +16,7 @@ function Edit() {
 
         dispatch(handleSubmitNewMessage(newMessage));
         setNewMessage('');
+        dispatch(handleUpdateCurrentPage('message_section'))
         history.push('/message_section')
     };
 

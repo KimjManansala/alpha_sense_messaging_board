@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {useDispatch} from "react-redux";
-import {handleGetChannelsMessage} from "./action";
+import {handleGetChannelsMessage, handleUpdateCurrentPage} from "./action";
 import {useHistory} from "react-router-dom";
 
 Channel.propTypes = {
@@ -18,6 +18,7 @@ function Channel({
     const history = useHistory();
     const handleOnClick = () => {
         dispatch(handleGetChannelsMessage(channel))
+        dispatch(handleUpdateCurrentPage('message_section'))
         history.push('/message_section')
     }
     return (

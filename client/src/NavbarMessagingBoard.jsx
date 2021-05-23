@@ -15,31 +15,36 @@ function NavbarMessagingBoard() {
         history.push(`/${route}`);
 
     }
+
+    console.log(currentPage)
     return (
-        <Nav tabs className="mt-3">
+        <Nav tabs className="mt-3 border-bottom-0">
             <NavItem
                 className="m-2"
                 onClick={() => {handleUpdatePage('channel_section')}}
-                active={!currentPage || currentPage === 'channel_section'}
             >
-                Navigation
+                <NavLink active={!currentPage || currentPage === 'channel_section'}>
+                    Navigation
+                </NavLink>
             </NavItem>
 
             <NavItem
                 className="m-2"
                 onClick={() => {handleUpdatePage('message_section')}}
-                active={currentPage === 'message_section'}
             >
-                Messages
+                <NavLink active={currentPage === 'message_section'}>
+                    Messages
+                </NavLink>
             </NavItem>
             <NavItem
                 className="m-2"
                 onClick={() => {handleUpdatePage('edit_section')}}
-                active={currentPage === 'edit_section'}
             >
-                Edit
+                <NavLink active={currentPage === 'edit_section'}>
+                    Edit
+                </NavLink>
             </NavItem>
-            <NavItem>
+            <NavItem className="m-2">
                 <NavLink disabled href="#">
                     {selectedChannel.name || "Please select a channel"}
                 </NavLink>
