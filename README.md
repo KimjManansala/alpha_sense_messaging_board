@@ -1,7 +1,7 @@
 # AlphaSense Messaging Board
 
 ## Setup
-1. clone this repo
+1. Clone this repo
 2. cd into the repository and run `npm install`
 3. install all dependencies for Client and Server side by running `npm run install-all`
 4. Once all dependencies are installed run both client and server side servers by running `npm run development`
@@ -17,7 +17,15 @@ The technologies involved are react, redux, express, and nodejs.
 
 Below are the goals as well as the initial mock design with the applications architecture.
 
-### Example Photos
+### Example Photos and video
+![Screen recording 2021-05-23 3 13 39 PM](https://user-images.githubusercontent.com/40606399/119273729-39af8180-bbda-11eb-91f6-c43616900b4a.gif)
+
+![Screenshot 2021-05-23 3 09 52 PM](https://user-images.githubusercontent.com/40606399/119273675-f2c18c00-bbd9-11eb-8f12-a56c84a53563.png)
+![Screenshot 2021-05-23 3 10 13 PM](https://user-images.githubusercontent.com/40606399/119273617-bbeb7600-bbd9-11eb-94ef-4e2e044fe36e.png)
+![Screenshot 2021-05-23 3 10 22 PM](https://user-images.githubusercontent.com/40606399/119273616-bbeb7600-bbd9-11eb-90dc-85c33a09df24.png)
+![Screenshot 2021-05-23 3 10 38 PM](https://user-images.githubusercontent.com/40606399/119273615-bb52df80-bbd9-11eb-91fb-76b58bcbeec6.png)
+![Screenshot 2021-05-23 3 10 43 PM](https://user-images.githubusercontent.com/40606399/119273614-bb52df80-bbd9-11eb-82ed-00f7a08429f6.png)
+
 
 
 ### Application Diagram and Architecture
