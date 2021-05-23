@@ -12,23 +12,21 @@ function Channels() {
         dispatch(handleGetChannels());
     }, [])
     return (
-            <Card className="w-50">
-                <Table>
-                    <thead>
-                        <tr>
-                            <td>Channel Name</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {channels.map((channel) => (
-                            <Channel
-                                channel={channel}
-                                key={channel.id}
-                            />
-                        ))}
-                    </tbody>
-                </Table>
-            </Card>
+            <Table>
+                <thead>
+                    <tr>
+                        <td>Channel Name</td>
+                    </tr>
+                </thead>
+                <tbody>
+                {channels.map((channel) => (
+                        <Channel
+                            channel={channel}
+                            key={channel.id}
+                        />
+                    ))}
+                </tbody>
+            </Table>
     );
 }
 
