@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Card, Table} from "reactstrap";
 import Channel from "./Channel";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {handleGetChannels} from "./action";
 
 function Channels() {
     const { channels } = useSelector((state => state.messageBoard))
-
+    const dispatch = useDispatch()
+    // lifecycle
+    useEffect(() => {
+        dispatch(handleGetChannels());
+    }, [])
     return (
             <Card className="w-50">
                 <Table>

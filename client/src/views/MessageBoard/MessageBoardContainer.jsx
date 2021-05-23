@@ -1,20 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import { useParams, useHistory } from 'react-router-dom';
-import Channels from "./Channels";
-import Messages from "./Messages";
-import Edit from "./Edit";
-import {handleGetChannels, handleGetChannelsMessage, handleSubmitNewMessage} from "./action";
-import {useDispatch, useSelector} from "react-redux";
+import React from 'react';
 import {CardBody, CardHeader} from "reactstrap";
 
 function MessageBoardContainer() {
-    const { pageSection } = useParams();
-    const dispatch = useDispatch();
-    // lifecycle
-    useEffect(() => {
-        dispatch(handleGetChannels());
-    }, [])
-
     return (
         <CardBody>
             <CardHeader>

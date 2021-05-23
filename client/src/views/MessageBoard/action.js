@@ -62,3 +62,12 @@ export const handleSubmitNewMessage = (message) => {
         }
     }
 }
+
+export const handleUpdateCurrentPage = (route) => {
+    return (dispatch) => {
+        return dispatch({
+            type: actionTypes.UPDATE_CURRENT_PAGE,
+            payload: route,
+        })
+    }
+}
