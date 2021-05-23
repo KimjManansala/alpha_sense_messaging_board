@@ -68,9 +68,6 @@ Below are the goals as well as the initial mock design with the applications arc
    - Body
      - Message text
 
-
-## setup instructions
-
 ## contributors
 
 [KimJ Manansala](https://github.com/KimjManansala)
