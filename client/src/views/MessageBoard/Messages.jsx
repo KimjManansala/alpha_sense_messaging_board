@@ -1,19 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Table} from "reactstrap";
 import Message from "./Message";
+import {useSelector} from "react-redux";
 
-Messages.propTypes = {
-    messages: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number,
-        channelId: PropTypes.number,
-        message: PropTypes.string,
-    })),
-};
-
-function Messages({
-    messages
-}) {
+function Messages() {
+    const { messages } = useSelector(state => state.messageBoard);
     return (
         <Table>
             <thead>
