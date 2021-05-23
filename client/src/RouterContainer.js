@@ -6,7 +6,7 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-import MessageBoardContainer from "./views/MessageBoard/MessageBoardContainer";
+import LandingPage from "./views/MessageBoard/LandingPage";
 import Channels from "./views/MessageBoard/Channels";
 import Messages from "./views/MessageBoard/Messages";
 import Edit from "./views/MessageBoard/Edit";
@@ -20,7 +20,7 @@ function RouterContainer() {
                     <Route path='/channel_section' component={Channels} />
                     <Route path='/message_section' component={Messages} />
                     <Route path='/edit_section' component={Edit} />
-                    <Route path='' component={MessageBoardContainer} />
+                    <Route path='' component={LandingPage} />
                 </Switch>
             </Router>
         </Container>
