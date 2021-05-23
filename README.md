@@ -5,7 +5,7 @@
 2. cd into the repository and run `npm install`
 3. install all dependencies for Client and Server side by running `npm run install-all`
 4. Once all dependencies are installed run both client and server side servers by running `npm run development`
-5. Go to `http://localhost:3000/channel_section` and enjoy the prototype!
+5. Go to `http://localhost:3000` and enjoy the prototype!
 
 ## Summary
 
