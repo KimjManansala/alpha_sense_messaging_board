@@ -16,7 +16,6 @@ function NavbarMessagingBoard() {
 
     }
 
-    console.log(currentPage)
     return (
         <Nav tabs className="mt-3 border-bottom-0">
             <NavItem
