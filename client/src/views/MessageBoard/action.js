@@ -6,7 +6,6 @@ const baseUrl = 'http://localhost:3001'
 export const handleGetChannels = () => {
     return async (dispatch) => {
         try {
-            console.log('hello')
             const res = await axios.get(`${baseUrl}/channels`)
             dispatch({
                 type: actionTypes.UPDATE_CHANNEL_LIST,
