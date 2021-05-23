@@ -23,8 +23,6 @@ function MessageBoardContainer() {
     }
 
     const handleSubmitMessage = (message) => {
-        console.log('submit placeholder')
-        console.log(selectedChannel)
         handleSubmitNewMessage(selectedChannel, message, handleUpdateSelectedChannel)
     }
 
