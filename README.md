@@ -13,7 +13,7 @@
  - Navigation panel shows a list of channels (Done)
  - Message list panel shows a list of message bodies (Done)
  - Editor panel shows a text editor (Done)
-   - Editor has a submit button
+   - Editor has a submit button (Done)
 
 #### Client interactions
  - Clicking a channel in navigation panel selects that channel (Done)
@@ -33,13 +33,13 @@
 
 #### NodeJS backend
  - Channel and message storage must be an in-memory database (global variable etc), and you can assume a single instance can handle all traffic (Done)
- - On Server start, storage is populate with a fixed set of empty channels (TODO)
+ - On Server start, storage is populate with a fixed set of empty channels (Done)
  - GET endpoint for querying channels (Done)
    - GET http://<backend>/channels
  - GET endpoint for querying channel's messages (Done)
-   - GET httpL//<backend>/messages/<channel>
+   - GET http://<backend>/messages/<channel>
  - POST endpoint for submitting new messages to a channel (Done) 
-   - POST httpL//<backend>/<channel>
+   - POST http://<backend>/<channel>
    - Body
      - Message text
 

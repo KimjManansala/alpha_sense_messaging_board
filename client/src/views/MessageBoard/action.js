@@ -20,7 +20,7 @@ export const handleGetChannels = () => {
 
 
 
-export const handleGetChannelsMessage = (channel) => {
+export const handleGetChannelsMessage = (channel, callback) => {
     return async (dispatch) => {
         try {
 
@@ -33,6 +33,7 @@ export const handleGetChannelsMessage = (channel) => {
                 type: actionTypes.UPDATE_SELECTED_CHANNEL,
                 payload: channel,
             })
+            callback()
         } catch (error) {
             console.log(error)
             alert("sorry something went wrong")

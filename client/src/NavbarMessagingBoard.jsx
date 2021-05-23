@@ -22,7 +22,7 @@ function NavbarMessagingBoard() {
                 className="m-2"
                 onClick={() => {handleUpdatePage('channel_section')}}
             >
-                <NavLink active={!currentPage || currentPage === 'channel_section'}>
+                <NavLink active={currentPage === 'channel_section'}>
                     Navigation
                 </NavLink>
             </NavItem>
