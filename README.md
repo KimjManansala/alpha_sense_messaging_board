@@ -60,11 +60,11 @@ Below are the goals as well as the initial mock design with the applications arc
  - Channel and message storage must be an in-memory database (global variable etc), and you can assume a single instance can handle all traffic (Done)
  - On Server start, storage is populate with a fixed set of empty channels (Done)
  - GET endpoint for querying channels (Done)
-   - GET http://<backend>/channels
+   - GET `http://<backend>/channels`
  - GET endpoint for querying channel's messages (Done)
-   - GET http://<backend>/messages/<channel>
+   - GET `http://<backend>/messages/<channel>`
  - POST endpoint for submitting new messages to a channel (Done) 
-   - POST http://<backend>/<channel>
+   - POST `http://<backend>/<channel>`
    - Body
      - Message text
 
