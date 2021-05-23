@@ -1,12 +1,29 @@
-# Alpha Sense Messaging Board
+# AlphaSense Messaging Board
+
+## Setup
+1. clone this repo
+2. cd into the repository and run `npm install`
+3. install all dependencies for Client and Server side by running `npm run install-all`
+4. Once all dependencies are installed run both client and server side servers by running `npm run development`
+5. Go to `http://localhost:3000/channel_section` and enjoy the prototype!
 
 ## Summary
 
-### Goals
+This is a prototype [message board](https://en.wikipedia.org/wiki/Internet_forum) for AlphaSense.
+This application is a minimum viable product where a user is able to see channels and the messages within the channel. The user
+is able to add new messages to the selected channel!
+
+The technologies involved are react, redux, express, and nodejs.
+
+Below are the goals as well as the initial mock design with the applications architecture.
+
+### Example Photos
 
 
 ### Application Diagram and Architecture
 ![AlphaSense Message Board prototype Diagram](https://user-images.githubusercontent.com/40606399/119208904-1f5a9400-ba72-11eb-8aae-70b4bd271362.png)
+
+## Acceptance Criteria
 
 #### Client visuals
  - Render a full page application with three panels (Done)
