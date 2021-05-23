@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {useDispatch} from "react-redux";
 import {handleGetChannelsMessage, handleUpdateCurrentPage} from "./action";
 import {useHistory} from "react-router-dom";
+import {actionTypes} from "../../reducers";
 
 Channel.propTypes = {
     channel: PropTypes.shape({
@@ -16,10 +17,12 @@ function Channel({
  }) {
     const dispatch = useDispatch();
     const history = useHistory();
+    const handlePageUpdate = () => {
+        history.push('/message_section');
+        dispatch(handleUpdateCurrentPage('message_section'));
+    }
     const handleOnClick = () => {
-        dispatch(handleGetChannelsMessage(channel))
-        dispatch(handleUpdateCurrentPage('message_section'))
-        history.push('/message_section')
+        dispatch(handleGetChannelsMessage(channel, handlePageUpdate))
     }
     return (
         <tr
