@@ -35,9 +35,10 @@ app.post("/:channelId", (req, res) =>{
     const { channelId } = req.params
     global_mock_data.mock_messages_data.push({
         id: global_mock_data.mock_messages_data.length + 1,
-        channelId,
+        channelId: parseInt(channelId),
         message: req.body.message,
     })
+    console.log(global_mock_data.mock_messages_data)
     const channelsMessages = global_mock_data.mock_messages_data
         .filter( message => message.channelId === parseInt(channelId))
     res.send({

@@ -13,7 +13,8 @@ function Edit({handleSubmitMessage, selectedChannel}) {
     const [newMessage, setNewMessage] = useState('');
     const [isButtonDisabled, setIsButtonDisabled] = useState(true)
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
         handleSubmitMessage(newMessage);
         setNewMessage('');
     };

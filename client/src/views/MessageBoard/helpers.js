@@ -25,5 +25,15 @@ export const handleGetChannelsMessage = (channelId, callback) => {
         })
 }
 
-export const handleSubmitNewMessage = (channelId, params, callback) => {
+export const handleSubmitNewMessage = (selectedChannel, message, callback) => {
+    axios.post(`${baseUrl}/${selectedChannel.id}`, {
+        message,
+    })
+        .then(res => {
+            callback(selectedChannel)
+         })
+        .catch(er => {
+            console.log(er)
+            alert("sorry something went wrong")
+        })
 }

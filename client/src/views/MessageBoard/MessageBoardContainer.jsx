@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import Channels from "./Channels";
 import Messages from "./Messages";
 import Edit from "./Edit";
-import {handleGetChannels, handleGetChannelsMessage} from "./helpers";
+import {handleGetChannels, handleGetChannelsMessage, handleSubmitNewMessage} from "./helpers";
 
 function MessageBoardContainer() {
     const { pageSection } = useParams();
@@ -24,6 +24,8 @@ function MessageBoardContainer() {
 
     const handleSubmitMessage = (message) => {
         console.log('submit placeholder')
+        console.log(selectedChannel)
+        handleSubmitNewMessage(selectedChannel, message, handleUpdateSelectedChannel)
     }
 
     // lifecycle
