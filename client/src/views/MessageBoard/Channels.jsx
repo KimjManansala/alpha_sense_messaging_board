@@ -14,8 +14,9 @@ Channels.propTypes = {
 };
 
 function Channels({channels, selectedChannel, handleUpdateSelectedChannel}) {
+    console.log(channels)
     const handleSelectedChannelClick = (selectedChannelIndex) => {
-        const newSelectedChannel = selectedChannel[selectedChannelIndex];
+        const newSelectedChannel = channels[selectedChannelIndex];
         handleUpdateSelectedChannel(newSelectedChannel);
     }
     return (
@@ -32,6 +33,7 @@ function Channels({channels, selectedChannel, handleUpdateSelectedChannel}) {
                                 onClick={handleSelectedChannelClick}
                                 channel={channel}
                                 index={index}
+                                key={channel}
                             />
                         ))}
                     </tbody>

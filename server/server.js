@@ -1,9 +1,11 @@
 const express = require("express");
 const bodyParser = require('body-parser');
+const cors = require("cors");
 const global_mock_data = require('./global_mock_data');
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
@@ -13,7 +15,7 @@ const PORT = process.env.PORT || 3001
 app.get("/channels", (req, res) => {
     res.send({
         success: true,
-        data: global_mock_data.mock_channels_data
+        channels: global_mock_data.mock_channels_data
     })
 })
 
@@ -24,7 +26,7 @@ app.get("/messages/:channelId", (req, res) => {
         .filter( message => message.channelId === parseInt(channelId))
     res.send({
         success: true,
-        data: channelsMessages,
+        messages: channelsMessages,
     })
 })
 
@@ -33,14 +35,15 @@ app.post("/:channelId", (req, res) =>{
     const { channelId } = req.params
     global_mock_data.mock_messages_data.push({
         id: global_mock_data.mock_messages_data.length + 1,
-        channelId,
+        channelId: parseInt(channelId),
         message: req.body.message,
     })
+
     const channelsMessages = global_mock_data.mock_messages_data
         .filter( message => message.channelId === parseInt(channelId))
     res.send({
         success: true,
-        data: channelsMessages,
+        message: channelsMessages,
     })
 })
 

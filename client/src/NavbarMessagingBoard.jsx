@@ -7,20 +7,26 @@ function NavbarMessagingBoard() {
     return (
         <Nav tabs>
             <NavItem>
-                <Link to="/channel_section">
-                    <NavLink active={pageSection === "channel_section"}>Channels</NavLink>
-                </Link>
+                <NavLink active={pageSection === "channel_section" || !pageSection}>
+                    <Link to="/channel_section">
+                        Channels
+                    </Link>
+                </NavLink>
             </NavItem>
 
             <NavItem>
-                <Link to="/message_section">
-                    <NavLink active={pageSection === "message_section"}>Messages</NavLink>
-                </Link>
+                <NavLink active={pageSection === "message_section"}>
+                    <Link to="/message_section">
+                        Messages
+                    </Link>
+                </NavLink>
             </NavItem>
             <NavItem>
-                <Link to="/edit_section">
-                    <NavLink active={pageSection === "edit_section"}>Edit</NavLink>
-                </Link>
+                <NavLink active={pageSection === "edit_section"}>
+                    <Link to="/edit_section">
+                    Edit
+                    </Link>
+                </NavLink>
             </NavItem>
             <NavItem>
                 <NavLink disabled href="#">TODO current Channel</NavLink>

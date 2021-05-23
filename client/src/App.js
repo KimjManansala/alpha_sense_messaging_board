@@ -7,17 +7,20 @@ import {
   Link
 } from "react-router-dom";
 import MessageBoardContainer from "./views/MessageBoard/MessageBoardContainer";
-import {Nav, Navbar, NavbarBrand, NavbarText, NavItem} from "reactstrap";
+import {Container, Nav, Navbar, NavbarBrand, NavbarText, NavItem} from "reactstrap";
 import NavbarMessagingBoard from "./NavbarMessagingBoard";
 
 function App() {
   return (
-    <Router>
-        <NavbarMessagingBoard />
-          <Switch>
-            <Route path='/:pageSection' component={MessageBoardContainer}/>
-          </Switch>
-    </Router>
+      <Container>
+        <Router>
+            <NavbarMessagingBoard />
+              <Switch>
+                <Route path='/:pageSection' component={MessageBoardContainer}/>
+                <Route path='' component={MessageBoardContainer}/>
+              </Switch>
+        </Router>
+      </Container>
   );
 }
 

@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 Message.propTypes = {
-    message: PropTypes.string,
+    message: PropTypes.shape({
+        id: PropTypes.number,
+        channelId: PropTypes.number,
+        message: PropTypes.string,
+    }),
 };
 
 function Message({
@@ -11,7 +15,7 @@ function Message({
     return (
         <tr>
             <td>
-                {message}
+                {message.message}
             </td>
         </tr>
     );

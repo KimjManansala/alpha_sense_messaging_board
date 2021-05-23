@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
-import {Button, FormGroup, Input} from "reactstrap";
+import {Button, Card, CardBody, FormGroup, Input} from "reactstrap";
 
 Edit.propTypes = {
-    handleSubmitMessage: PropTypes.string,
+    handleSubmitMessage: PropTypes.func,
     selectedChannel: PropTypes.shape({
         id: PropTypes.number,
     })
@@ -11,21 +11,46 @@ Edit.propTypes = {
 
 function Edit({handleSubmitMessage, selectedChannel}) {
     const [newMessage, setNewMessage] = useState('');
-    const handleSubmit = () => {
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true)
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
         handleSubmitMessage(newMessage);
         setNewMessage('');
     };
-    return (
-        <form onSubmit={handleSubmit}>
-            <FormGroup>
-               <textarea>
 
-               </textarea>
-            </FormGroup>
-            <Button type="submit">
-                Submit
-            </Button>
-        </form>
+    const handleChange = (event) => {
+        const { value } = event.target;
+        setNewMessage(value);
+    }
+
+    useEffect(() => {
+        return () => {
+            setNewMessage('');
+        }
+    }, [])
+
+    useEffect(() => {
+        setIsButtonDisabled(newMessage.length < 1)
+    }, [newMessage]);
+
+    return (
+        <Card>
+            <CardBody>
+                <form onSubmit={handleSubmit}>
+                    <FormGroup>
+                        <textarea onChange={handleChange} value={newMessage} />
+                    </FormGroup>
+                    <Button
+                        type="submit"
+                        disabled={isButtonDisabled}
+                        color='primary'
+                    >
+                        Submit
+                    </Button>
+                </form>
+            </CardBody>
+        </Card>
     );
 }
 
